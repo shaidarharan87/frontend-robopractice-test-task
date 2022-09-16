@@ -6,16 +6,23 @@ const useSort = (users, sort, by) => {
             return users
         if (sort !== 'a-z')
             return [...users].sort((a, b) => {
-                if(by !== 'name')
-                    return b.days[by] - a.days[by]
-                return b.name.localeCompare(a.name)
+                if(by === 'name')
+                    return b.name.localeCompare(a.name)
+                if(by === 'total') {
+                    return b.total - a.total
+                }
+                return b.days[by] - a.days[by]
+
             })
         return [...users].sort((a, b) => {
-            if(by !== 'name')
-                return a.days[by] - b.days[by]
-            a.name.localeCompare(b.name)
+            if(by === 'name')
+                return a.name.localeCompare(b.name)
+            if(by === 'total')
+                return a.total - b.total
+            return a.days[by] - b.days[by]
+
         })
-    }, [sort, users])
+    }, [sort, users, by])
 }
 
 export const useFilter = (users, sort, by, search) => {

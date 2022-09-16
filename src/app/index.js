@@ -1,11 +1,9 @@
 import {useEffect, useState} from "react";
-import Row from "./Components/Row/Row";
 import Search from "./Components/Search/Search";
 import {useFilter} from "./hooks/useFilter";
 import UserService from "./services/UserService";
 import {useFetch} from "./hooks/useFetch";
 import {usePagination} from "./hooks/usePagination";
-import Header from "./Components/Row/Header";
 import Table from "./Components/Table";
 import './index.css'
 import Pagination from "./Components/Pagination/Pagination";
